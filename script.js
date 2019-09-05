@@ -33,7 +33,7 @@ function getData() {        //defining the function
 function prevCard() {
     card.classList.remove('flipped');
     setTimeout(() => {
-        currentCard = currentCard - 1 < 0 ? currentCard : currentCard - 1;
+        currentCard = currentCard - 1;
         if( currentCard < 0) {
             currentCard = 0;
         }
@@ -44,19 +44,6 @@ function prevCard() {
 }
 /* we do this b/c a part of the previous card shows up when we hit next, we set a timeout so that
 when we hit next that it flips back to ex (q2 or q3 and not stay on a2 or a3 when we are currently on a1.) */
-
-function nextCard() {
-    card.classList.remove('flipped');
-    setTimeout(()=>{
-        currentCard = currentCard + 1 >= quiz.length ? currentCard : currentCard + 1;
-        if( currentCard < 0) {
-            currentCard = 0;
-        }
-        front.textContent = quiz[currentCard].question;
-        back.textContent = quiz[currentCard].answer;        
-    }, 500);
-    
-}
 
 function flipCard() {
     card.classList.toggle('flipped');
